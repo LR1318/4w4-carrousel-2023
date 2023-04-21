@@ -35,5 +35,13 @@
   object-fit: cover;
   width : 100%;
   height : auto;
+  opacity: 0;
 
+}
+.carrousel__form{
+  display: flex;
+
+  position: absolute;
+  bottom: 0;
+  border: 2px solid red;
 }
