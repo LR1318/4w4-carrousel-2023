@@ -22,21 +22,24 @@
 // }
   carrousel__ouvrir.addEventListener('mousedown', function(){
      carrousel.classList.add('carrousel--activer')
-     document.addEventListener("keydown", function(event) {
-      if (event.key == "ArrowLeft"){
-         alert("Left key");
-      } else if (event.key == "ArrowRight"){
-         alert("Up key");
-      }
-    });
-     ajouter_les_images_de_galerie()
+     document.addEventListener("keydown",evenementTouche);
+
   })
 
   carrousel__x.addEventListener('mousedown', function(){
      carrousel.classList.remove('carrousel--activer')
-     document.addEventListener("keydown")
+     document.removeEventListener("keydown",evenementTouche)
   })
 
+
+  function evenementTouche(event) {
+    if (event.key == "ArrowLeft"){
+      changer_image_gauche()
+      
+    } else if (event.key == "ArrowRight"){
+       
+      changer_image_droite()
+    }}
 /**
  * Pour chaque image de la galerie l'ajouter dans le carrousel
  */
@@ -44,16 +47,23 @@ let position = 0
 let index = 0
 let ancienIndex = null
 
-function ajouter_les_images_de_galerie()
-{
+
   for (const elem of galerie__img){
-    if(ancienIndex==null){
+    elem.dataset.index=position
+      elem.addEventListener('mousedown', function(e){
+        index = e.target.dataset.index
+        affiche_image_carrousel()
+     document.removeEventListener("keydown",evenementTouche)
+     document.addEventListener("keydown",evenementTouche);
+
+
+      })
 
       ajouter_une_image_dans_carrousel(elem)
       ajouter_un_radio_bouton_dans_carrousel()
-    }
+    
   }
-}
+
 /**
  * Création dynamique d'une image pour le carrousel
  * @param {*} elem une image de la galerie
@@ -97,18 +107,32 @@ function affiche_image_carrousel(){
 
   // carrousel__figure.children[ancienIndex].classList.add('carrousel__img--activer');
 
+  carrousel.classList.add('carrousel--activer')
 
   ancienIndex = index
 }
 
-})()
-
 // pour changer l'image de gauche l'index va diminuer
 function changer_image_gauche(){
+  index--
+      if(index<0){
+        index=position-1
+       }
+
+      console.log(index)
+      affiche_image_carrousel()
 
 }
 
 // pour changer l'image de gauche l'index va augmenter
 function changer_image_droite(){
 
+  index++
+       if(index>position-1){
+        index=0
+       }
+      console.log(index)
+      affiche_image_carrousel()
+
 }
+})()

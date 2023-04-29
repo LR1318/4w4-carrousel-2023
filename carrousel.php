@@ -42,9 +42,11 @@ add_action('wp_enqueue_scripts', 'enfiler_script_css' );
 
 function creation_carrousel()
 {
+    
     return '<button class="carrousel__ouvrir">Ouvrir Carrousel</button>
             <div class="carrousel">
                 <button class="carrousel__x">X</button>
+                <img src="./img/fleche_droite.png" alt="">
                 <figure class="carrousel__figure"></figure>
                 <form class="carrousel__form"></form>
             </div>';
