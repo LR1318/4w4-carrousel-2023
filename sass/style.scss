@@ -18,7 +18,7 @@
   position : absolute;
   top :3px;
   right : 3px;
-  z-index : 3;
+  z-index : 6;
 }
 
 .carrousel__figure {
@@ -46,8 +46,32 @@
   border: 2px solid red;
 }
 .image_fleche_gauche{
-  position: absolute;
+  display: flex;
+  align-items: center;
   width: 50%;
-  top: 50;
-
+  height: 100%;
+  position: relative;
+  z-index: 5;
+  font-size: 5rem;
+cursor: pointer;
+background: none;
+border: none;
+  
+}
+.image_fleche_droite{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  width: 50%;
+  position: relative;
+  left: 50%;
+  top: -100%;
+  z-index: 5;
+  font-size: 5rem;
+  cursor: pointer;
+background: none;
+border: none;
+  
+  
 }

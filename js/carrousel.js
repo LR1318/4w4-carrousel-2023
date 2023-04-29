@@ -5,6 +5,10 @@
   let carrousel__x = document.querySelector('.carrousel__x')
   let carrousel__figure = document.querySelector('.carrousel__figure')
   let carrousel__form = document.querySelector('.carrousel__form')
+  let carrousel__fleche_gauche = document.querySelector('.image_fleche_gauche')
+  let carrousel__fleche_droite = document.querySelector('.image_fleche_droite')
+
+
   console.log(carrousel__form.tagName)
 
   let galerie = document.querySelector('.galerie')
@@ -24,6 +28,7 @@
      carrousel.classList.add('carrousel--activer')
      document.addEventListener("keydown",evenementTouche);
 
+
   })
 
   carrousel__x.addEventListener('mousedown', function(){
@@ -31,23 +36,23 @@
      document.removeEventListener("keydown",evenementTouche)
   })
 
-
+  
   function evenementTouche(event) {
     if (event.key == "ArrowLeft"){
       changer_image_gauche()
       
     } else if (event.key == "ArrowRight"){
-       
+      
       changer_image_droite()
     }}
-/**
- * Pour chaque image de la galerie l'ajouter dans le carrousel
- */
-let position = 0
-let index = 0
-let ancienIndex = null
-
-
+    /**
+     * Pour chaque image de la galerie l'ajouter dans le carrousel
+    */
+   let position = 0
+   let index = 0
+   let ancienIndex = null
+   
+   
   for (const elem of galerie__img){
     elem.dataset.index=position
       elem.addEventListener('mousedown', function(e){
@@ -55,6 +60,8 @@ let ancienIndex = null
         affiche_image_carrousel()
      document.removeEventListener("keydown",evenementTouche)
      document.addEventListener("keydown",evenementTouche);
+      carrousel__fleche_droite.addEventListener('mousedown', changer_image_droite)
+      carrousel__fleche_gauche.addEventListener('mousedown', changer_image_gauche)
 
 
       })
@@ -110,6 +117,7 @@ function affiche_image_carrousel(){
   carrousel.classList.add('carrousel--activer')
 
   ancienIndex = index
+
 }
 
 // pour changer l'image de gauche l'index va diminuer

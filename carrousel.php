@@ -46,7 +46,8 @@ function creation_carrousel()
     return '<button class="carrousel__ouvrir">Ouvrir Carrousel</button>
             <div class="carrousel">
                 <button class="carrousel__x">X</button>
-                <img src="./img/fleche_droite.png" alt="">
+                <button class="image_fleche_gauche" alt="">&#11164;</button>
+                <button class="image_fleche_droite"  alt="">&#11166;</button>
                 <figure class="carrousel__figure"></figure>
                 <form class="carrousel__form"></form>
             </div>';
