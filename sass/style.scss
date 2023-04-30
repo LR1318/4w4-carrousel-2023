@@ -1,30 +1,60 @@
 .carrousel { // boîte modale 
   position : fixed;
-  width : 50%;
-  height : 50%;
+  width : 60%;
+  height : 60%;
   top : 25%;
   left : 25%;
   border: 1px solid #aaa;
   background-color: aquamarine;
   transform : scale(0);
   transition : transform .5s;
+  box-shadow: 0 0 200px 500px rgba(0, 0, 0, 0.8);
 }
 
 .carrousel--activer {
   transform : scale(1);
 }
+// Couleurs
+$primary-color: #4d006b;
 
-.carrousel__x{
-  position : absolute;
-  top :3px;
-  right : 3px;
-  z-index : 6;
+
+
+// Bouton
+.carrousel__x {
+  padding: 0.5rem 1rem;
+  position: fixed;
+  right: 0;
+  z-index: 10;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  border-radius:  15%;
+  
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  transition: all 0.15s ease-in-out;
+  cursor:crosshair ;
+
+
+    &:hover {
+      background-color: darken($primary-color, 10%);
+
+    }
 }
+// .carrousel__x{
+//   width: 10%;
+//   height: 10%;
+//   position : absolute;
+//   top :3px;
+//   right : 3px;
+//   z-index : 6;
+// }
 
 .carrousel__figure {
   position : absolute;
   width : 100%;
-  height: auto;
+  height: 100%;
   top :0;
   left : 0;
 }
@@ -34,7 +64,7 @@
   position : absolute;
   object-fit: cover;
   width : 100%;
-  height : auto;
+  height : 100%;
   opacity: 0;
 
 }
@@ -46,17 +76,22 @@
   border: 2px solid red;
 }
 .image_fleche_gauche{
-  display: flex;
+    display: flex;
+  justify-content: flex-end;
   align-items: center;
-  width: 50%;
   height: 100%;
+  width: 50%;
   position: relative;
+ left: -50%;
   z-index: 5;
   font-size: 5rem;
-cursor: pointer;
-background: none;
-border: none;
-  
+  cursor: pointer;
+clip-path: polygon(0% 0%, 30% 50%, 0% 100%);
+transform: rotate(180deg);
+background-color: black;
+&:hover{
+  background-color: rgb(46, 45, 45);
+}
 }
 .image_fleche_droite{
   display: flex;
@@ -65,13 +100,17 @@ border: none;
   height: 100%;
   width: 50%;
   position: relative;
-  left: 50%;
+  left: 100%;
   top: -100%;
   z-index: 5;
   font-size: 5rem;
   cursor: pointer;
-background: none;
-border: none;
+border:none;
+clip-path: polygon(0% 0%, 30% 50%, 0% 100%);
+background-color: black;
+&:hover{
+  background-color: rgb(46, 45, 45);
+}
   
   
 }
