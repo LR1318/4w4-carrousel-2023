@@ -8,7 +8,7 @@
   background-color: aquamarine;
   transform: scale(0);
   transition: transform 0.5s;
-  box-shadow: 0 0 200px 500px rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 200px 500px rgba(101, 101, 101, 0.8);
 }
 
 .carrousel--activer {
@@ -53,9 +53,17 @@
 
 .carrousel__form {
   display: flex;
-  position: absolute;
-  bottom: 0;
-  border: 2px solid red;
+  justify-content: center;
+  position: fixed;
+  bottom: -10%;
+  left: 40%;
+  transform: scale(2);
+  color: white;
+  border: none;
+  text-decoration: none;
+}
+.carrousel__form .carrousel__rad {
+  background-color: red;
 }
 
 .image_fleche_gauche {
