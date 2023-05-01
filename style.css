@@ -16,13 +16,13 @@
 }
 
 .carrousel__x {
-  padding: 0.5rem 1rem;
   position: fixed;
+  margin: 2rem;
   right: 0;
   z-index: 10;
   border-radius: 0.25rem;
-  font-size: 1rem;
-  border-radius: 15%;
+  font-size: 2rem;
+  border-radius: 50%;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
